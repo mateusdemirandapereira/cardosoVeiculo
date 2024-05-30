@@ -6,7 +6,7 @@ const usuario = {
         const texto = `insert into usuario(nome,email,senha) values(?, ?, ?)`;
        await conn.query(texto,[dado.usuario, dado.email, dado.senha]);
     },
-    async tabela() {
+    async criarTabela() {
         const conn = await connection();
         const texto = `create table if not exists usuario(
                         id int not null primary key auto_increment,

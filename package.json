@@ -10,18 +10,15 @@
     ],
     "author": "mateus",
     "scripts": {
-        "dev": "electron main.js",
-        "start": "nodemon app.js"
+        "start": "nodemon ./app.js"
     },
     "contributors": [],
     "devDependencies": {
-        "electron": "^30.0.8",
         "nodemon": "^3.1.1"
     },
     "dependencies": {
         "express": "^4.19.2",
         "jsonwebtoken": "^9.0.2",
-        "mysql2": "^3.9.7",
-        "nunjucks": "^3.2.4"
+        "mysql2": "^3.9.7"
     }
 }
