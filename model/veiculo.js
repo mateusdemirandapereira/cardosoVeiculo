@@ -1,6 +1,36 @@
 const connection = require("../connection.js");
 
 const veiculo = {
+	async atualizarVeiculoCodigo(dado) {
+		console.log(dado);
+		const conn = await connection();
+		const query = `update veiculo
+		 set veiculo.placa = ?, veiculo.chassi = ?, veiculo.crv = ?, veiculo.codigoSeguranca = ?,
+		 veiculo.fipe = ?, veiculo.anoFabricacao = ?, veiculo.anoModelo = ?, veiculo.numeroMotorBin = ?,
+		 veiculo.combustivel = ?, veiculo.cor = ?, veiculo.motorizacao = ?, veiculo.odometro = ?,
+		 veiculo.cambio = ?, veiculo.renavam = ?, veiculo.modeloMarchas = ?, veiculo.versaoVeiculo = ?,
+		 veiculo.quantidadePorta = ?, veiculo.tipoDirecao = ? where veiculo.id = ?`;
+		 const dadoVeiculo = [
+			dado.placa, dado.chassi, dado.crv, dado.codigoSeguranca, dado.fipe, dado.anoFabricacao,
+			dado.anoModelo, dado.numeroMotorBin, dado.combustivel, dado.cor, dado.motorizacao,
+			dado.odometro, dado.cambio, dado.renavam, dado.modeloMarchas, dado.versaoVeiculo,
+			dado.quantidadePorta, dado.tipoDirecao, dado.codigo];
+		await conn.query(query, dadoVeiculo);
+
+	},
+	async deletarVeiculoCodigo(codigo) {
+		const conn = await connection();
+		const query = `delete from veiculo where veiculo.id = ?`;
+		await conn.query(query, [codigo]);
+	},
+
+	async buscarVeiculoCodigo(codigo) {
+		const conn = await connection();
+		const query = `select * from veiculo where veiculo.id = ?`;
+		const [veiculo] = await conn.query(query, [codigo]); 	
+		return veiculo;
+	},
+	
 	async buscarVeiculos() {
 		const conn = await connection();
 		const query = `select

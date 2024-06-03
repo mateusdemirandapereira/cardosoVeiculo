@@ -17,7 +17,7 @@ const usuario = {
         await conn.query(texto);
     }
     
-}
+};
 
 
 module.exports = usuario;
