@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const usuario = require("./router/usuario.js");
 const veiculo = require("./router/veiculo.js");
+const cliente = require("./router/cliente.js");
 const usuarioModel = require("./model/usuario.js");
 const veiculoModel = require("./model/veiculo.js");
 const clienteModel = require("./model/cliente.js");
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use(usuario);
 app.use(veiculo);
+app.use(cliente);
 
 
 
