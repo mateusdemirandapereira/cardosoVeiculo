@@ -2,19 +2,22 @@ const connection = require("../connection.js");
 
 const veiculo = {
 	async atualizarVeiculoCodigo(dado) {
-		console.log(dado);
+		
 		const conn = await connection();
 		const query = `update veiculo
 		 set veiculo.placa = ?, veiculo.chassi = ?, veiculo.crv = ?, veiculo.codigoSeguranca = ?,
 		 veiculo.fipe = ?, veiculo.anoFabricacao = ?, veiculo.anoModelo = ?, veiculo.numeroMotorBin = ?,
 		 veiculo.combustivel = ?, veiculo.cor = ?, veiculo.motorizacao = ?, veiculo.odometro = ?,
 		 veiculo.cambio = ?, veiculo.renavam = ?, veiculo.modeloMarchas = ?, veiculo.versaoVeiculo = ?,
-		 veiculo.quantidadePorta = ?, veiculo.tipoDirecao = ? where veiculo.id = ?`;
+		 veiculo.quantidadePorta = ?, veiculo.tipoDirecao = ? veiculo.historicoLeilao = ?,
+		 veiculo.chassiRemarcado = ?, veiculo.historicoSinistro = ?, veiculo.historicoGravame = ?
+		 where veiculo.id = ?`;
 		 const dadoVeiculo = [
 			dado.placa, dado.chassi, dado.crv, dado.codigoSeguranca, dado.fipe, dado.anoFabricacao,
 			dado.anoModelo, dado.numeroMotorBin, dado.combustivel, dado.cor, dado.motorizacao,
 			dado.odometro, dado.cambio, dado.renavam, dado.modeloMarchas, dado.versaoVeiculo,
-			dado.quantidadePorta, dado.tipoDirecao, dado.codigo];
+			dado.quantidadePorta, dado.tipoDirecao, dado.historicoLeilao, dado.chassiRemarcado,
+			dado.historicoSinistro, dado.historicoGravame, dado.codigo];
 		await conn.query(query, dadoVeiculo);
 
 	},
@@ -54,13 +57,15 @@ const veiculo = {
 		const query = `insert into veiculo(
 		placa, chassi, crv, codigoSeguranca, fipe, anoFabricacao, anoModelo, numeroMotorBin,
 		combustivel, cor, motorizacao, odometro, cambio, renavam, modeloMarchas,
-		versaoVeiculo, quantidadePorta, tipoDirecao)
-		values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+		versaoVeiculo, quantidadePorta, tipoDirecao, historicoLeilao, chassiRemarcado,
+		historicoSinistro, historicoGravame)
+		values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 		const dadoVeiculo = [
 			dado.placa, dado.chassi, dado.crv, dado.codigoSeguranca, dado.fipe, dado.anoFabricacao,
 			dado.anoModelo, dado.numeroMotorBin, dado.combustivel, dado.cor, dado.motorizacao,
 			dado.odometro, dado.cambio, dado.renavam, dado.modeloMarchas, dado.versaoVeiculo,
-			dado.quantidadePorta, dado.tipoDirecao];
+			dado.quantidadePorta, dado.tipoDirecao, dado.historicoLeilao, dado.chassiRemarcado,
+			dado.historicoSinistro, dado.historicoGravame];
 
 		await conn.query(query,dadoVeiculo);
 		
@@ -89,7 +94,11 @@ const veiculo = {
 		modeloMarchas int not null,
 		versaoVeiculo varchar(255) not null,
 		quantidadePorta int not null,
-		tipoDirecao varchar(255) not null)`;
+		tipoDirecao varchar(255) not null,
+		historicoLeilao varchar(255),
+		chassiRemarcado varchar(255),
+		historicoSinistro varchar(255),
+		historicoGravame varchar(255))`;
 
 		await conn.query(query);
 	}
