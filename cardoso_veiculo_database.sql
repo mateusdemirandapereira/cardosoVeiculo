@@ -1,5 +1,6 @@
 use cardosoveiculos;
 
+/* tabelas para montar o check list */
 create table if not exists veiculo_traseira (
 id integer not null primary key auto_increment,
 lacrePlaca varchar(255),
@@ -22,6 +23,15 @@ portaMalas varchar(255),
 vidroTraseiro varchar(255)
 );
 
+
+insert into veiculo_traseira(lacrePlaca, carroceria, kitGnv, gravacaoParabrisaTraseiro, assoalhoPortaMalas,
+ chaveRodas, encostoCabecaAssentosTraseiro, escapamento, lanternaTraseiraDireito, lanternaTraseiraEsquedo,
+ limpadorVidroTraseiro, macaco,parachoqueTraseiro, bauCacamba, placaTraseira, pneuRodaEstepe, portaMalas,
+ vidroTraseiro)
+ values("Sem Danos", "Hacth", "Não Possui", "Preservado Original", "Sem Danos", "Possui","Possui para todos Ocupantes",
+ "Possui", "Funcionando", "Funcionando", "Possui", "Possui", "Sem Danos", "Não Possui", "Sem Danos", "Possui",
+ "Sem Danos", "Preservado Original");
+
 create table if not exists veiculo_lado_esquerdo (
 id integer not null primary key auto_increment,
 pneusDianteiroEsquerdo varchar(255),
@@ -42,6 +52,16 @@ vidroDianteiroEsquerdo varchar(255),
 vidroTraseiroEsquerdo varchar(255),
 caixaRoda varchar(255)
 );
+
+
+insert into veiculo_lado_esquerdo(
+pneusDianteiroEsquerdo, pneusTraseiroEsquerdo, coluna, gravacaoVidroTraseiroEsquerdo, caixaAr, colunaTraseiraEsquerda,
+gravacaoVidroDianteiroEsquerdo, colunaCentralEsquerda, lateralTraseiraEsquerda, espelhoRetrovisorEsquerdo,
+paralamaDianteiroEsquerdo, portaDianteiraEsquerda, portaTraseiraEsquerda, vidroVigiaEsquerdo, vidroDianteiroEsquerdo,
+vidroTraseiroEsquerdo, caixaRoda)
+values("Não Necessita de Troca", "Não Necessita de Troca", "Sem Danos", "Preservado Original", "Sem Danos",
+"Sem Danos", "Preservado Original", "Sem Danos", "Sem Danos","Sem Danos", "Sem Danos", "Sem Danos",
+"Sem Danos", "Preservado Original", "Presevado Original", "Preservado Original", "Sem Danos"); 
 
 create table if not exists veiculo_dianteira(
 id integer not null primary key auto_increment,
@@ -64,6 +84,17 @@ lanternaDianteiraEsquerdo varchar(255),
 parabrisaDianteiro varchar(255),
 longarina varchar(255)
 );
+
+
+insert into veiculo_dianteira(
+gravacaoParabrisaDianteiro, etiquetaEtaMotor, capo, farolAltoDianteiroDireito, farolAltoDianteiroEsquerdo,
+farolNeblinaDireito, farolNeblinaEsquerdo, funilaria, limpadorParaBrisaDianteiro, bateria,
+paraChoqueDianterDianteiro, placaDianteira, veiculoLiga, compartimentoMotor, lanternaDianteiraDireito,
+ lanternaDianteiraEsquerdo, parabrisaDianteiro, longarina)
+ values(
+ "Preservada Original", "Preservado Original", "Sem Danos", "Funcionando", "Funcionando", "Funcionando",
+ "Funcionando", "Bom", "Possui", "Não Substituir", "Não Substituir", "Sem Danos", "Sim", "Sem Danos",
+ "Funcionando", "Funcionando", "Preservado Original", "Sem Danos");
 
 create table if not exists veiculo_lado_direito (
 id integer not null primary key auto_increment,
@@ -93,6 +124,17 @@ vidrosTraseiroDianteiro varchar(255),
 caixaRodaDireita varchar(255),
 espelhoRetrovisorInterno varchar(255)
 );
+
+insert into veiculo_lado_direito (etiquetaEtaColuna, gravacaoVidroDianteiroDireito, etiquetaEtaAssoalho,
+ gravacaoVidroTraseiroDireito, pneusDianteiroDireito, pneusTraseiroDireito, caixaArD, colunaDianteiraDireita,
+ colunaCentralDireito, colunaTraseiraDireita, lateralTraseiraDireito, revestimentoInternoLaterais,
+ espelhoRetrovisorDireito, paralamaDianteiroDireito, portaDianteiraDireita, portaTraseiraDireita, calotaEstado,
+ tipoEstofado, tipoRoda, vidroVigiaDireito, vidroDianteiroDireito, vidrosEletricosDianteiro,
+ vidrosTraseiroDianteiro, caixaRodaDireita, espelhoRetrovisorInterno)
+ values("Intacta", "Preservado Original", "Intacta", "Preservado Original", "Não necessario Troca", "Não necessario Troca",
+ "Sem Danos", "Sem Danos", "Sem Danos", "Sem Danos", "Sem Danos", "Bom", "Sem Danos", "Sem Danos", "Sem Danos",
+ "Sem Danos", "Possui", "Pano", "Roda de Ferro", "Preservado Original", "Preservado Original",
+ "Funcionando", "Preservado Original", "Sem Danos", "Sem Danos");
 
 create table if not exists veiculo_agregados(
 id integer not null primary key auto_increment,
