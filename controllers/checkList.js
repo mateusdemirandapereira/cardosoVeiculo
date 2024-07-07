@@ -6,6 +6,7 @@ const checkList = {
         console.log(req.body);
 
       const veiculoTraseira =   await modelCheckList.adicionaVeiculoTraseira(req.body);
+      res.status(201);
       res.json({veiculoTraseira});
 
     }
