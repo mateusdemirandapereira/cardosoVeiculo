@@ -8,7 +8,7 @@ const connection = async ()=>{
     if(!conn) {
         conn = await mysql.createConnection(db);
     }
-    
+  
     return conn;
 } 
 
